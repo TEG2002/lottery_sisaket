@@ -1,0 +1,1074 @@
+/* =========================================
+   CSS CUSTOM PROPERTIES (Design Tokens)
+   ========================================= */
+:root {
+  /* Core Brand Colors — ธีมสลากกาชาด */
+  --brand-red:    #c0392b;
+  --brand-orange: #e55a1c;
+  --brand-gold:   #f0a500;
+  --brand-dark:   #1a0a00;
+
+  /* Extended Palette */
+  --orange-50:  #fff7ed;
+  --orange-100: #ffedd5;
+  --orange-200: #fed7aa;
+  --orange-300: #fdba74;
+  --orange-400: #fb923c;
+  --orange-500: #f97316;
+  --orange-600: #ea580c;
+  --orange-700: #c2410c;
+  --orange-800: #9a3412;
+
+  --red-50:  #fef2f2;
+  --red-100: #fee2e2;
+  --red-500: #ef4444;
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+  --red-800: #991b1b;
+
+  --gold-50:  #fffbeb;
+  --gold-100: #fef3c7;
+  --gold-200: #fde68a;
+  --gold-300: #fcd34d;
+  --gold-400: #fbbf24;
+  --gold-500: #f59e0b;
+  --gold-600: #d97706;
+
+  --green-50:  #f0fdf4;
+  --green-100: #dcfce7;
+  --green-600: #16a34a;
+  --green-700: #15803d;
+
+  --slate-50:  #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+
+  /* Shadows */
+  --shadow-sm:   0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md:   0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg:   0 12px 32px rgba(194,65,12,0.14), 0 4px 10px rgba(0,0,0,0.04);
+  --shadow-card: 0 2px 10px rgba(0,0,0,0.06);
+  --shadow-gold: 0 4px 18px rgba(240,165,0,0.25);
+
+  /* Gradients */
+  --grad-hero:    linear-gradient(160deg, #7f1d1d 0%, #b91c1c 20%, #c2410c 50%, #ea580c 75%, #f59e0b 100%);
+  --grad-brand:   linear-gradient(135deg, #b91c1c 0%, #ea580c 60%, #f59e0b 100%);
+  --grad-gold:    linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #fde68a 100%);
+  --grad-card:    linear-gradient(145deg, #ffffff 0%, #fffdf9 100%);
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+}
+
+/* =========================================
+   RESET & BASE
+   ========================================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Prompt', 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #fdf6ee;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(234,88,12,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(220,38,38,0.05) 0%, transparent 50%);
+  color: var(--slate-800);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* =========================================
+   TOP NAVIGATION BAR
+   ========================================= */
+.top-nav-bar {
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(234,88,12,0.12);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+}
+
+.top-nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-redcross-badge {
+  background: var(--grad-brand);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 2px 8px rgba(220,38,38,0.28);
+  letter-spacing: 0.01em;
+}
+
+.brand-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--slate-900);
+  letter-spacing: -0.01em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.nav-tag {
+  color: var(--slate-500);
+  font-weight: 500;
+  font-size: 12.5px;
+  display: none;
+}
+@media (min-width: 768px) { .nav-tag { display: inline; } }
+
+.nav-tel {
+  color: var(--orange-700);
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--orange-50);
+  padding: 5px 13px;
+  border-radius: 9px;
+  border: 1px solid var(--orange-200);
+  transition: all 0.2s;
+  font-size: 13px;
+}
+.nav-tel:hover { background: var(--orange-100); }
+
+.nav-admin-link {
+  color: var(--slate-600);
+  text-decoration: none;
+  background: var(--slate-100);
+  padding: 5px 13px;
+  border-radius: 9px;
+  font-weight: 600;
+  font-size: 12.5px;
+  transition: all 0.2s;
+  border: 1px solid var(--slate-200);
+}
+.nav-admin-link:hover { background: var(--slate-200); color: var(--slate-900); }
+
+/* =========================================
+   HERO HEADER — เต็มสีธีมงาน
+   ========================================= */
+.hero-header-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--grad-hero);
+  margin: 0;
+  padding: 0;
+}
+
+/* ลายพื้นหลังเทศกาล */
+.hero-header-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.08) 0%, transparent 35%),
+    radial-gradient(circle at 90% 80%, rgba(0,0,0,0.08) 0%, transparent 35%),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 28px,
+      rgba(255,255,255,0.03) 28px,
+      rgba(255,255,255,0.03) 56px
+    );
+  pointer-events: none;
+}
+
+/* เส้นทองประดับล่าง */
+.hero-header-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--grad-gold);
+}
+
+.hero-header-box {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 44px 24px 36px;
+  text-align: center;
+  z-index: 1;
+}
+
+/* แถบกาชาดด้านบน */
+.hero-org-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(8px);
+  padding: 6px 20px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.95);
+  margin-bottom: 20px;
+  letter-spacing: 0.01em;
+}
+
+.main-title {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.25);
+}
+
+.main-title .highlight {
+  display: inline-block;
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 110%;
+}
+
+.main-subtitle {
+  margin: 0 auto 24px;
+  max-width: 700px;
+  font-family: 'Sarabun', sans-serif;
+  font-size: clamp(14px, 2.2vw, 17px);
+  color: rgba(255,255,255,0.82);
+  line-height: 1.65;
+}
+
+/* pill badges ในฮีโร่ */
+.hero-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.hero-pill-badge {
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 7px 15px;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.28);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(6px);
+  transition: all 0.2s;
+}
+.hero-pill-badge:hover {
+  background: rgba(255,255,255,0.22);
+}
+.hero-pill-badge svg { opacity: 0.9; }
+
+/* =========================================
+   MAIN WRAPPER
+   ========================================= */
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 16px 72px;
+}
+
+/* =========================================
+   TICKET CHECKER CARD
+   ========================================= */
+.checker-card {
+  margin-top: -28px;
+  position: relative;
+  z-index: 10;
+  background: #fff;
+  border-radius: var(--radius-xl);
+  padding: 28px 32px;
+  border: 1.5px solid rgba(234,88,12,0.14);
+  box-shadow: 0 20px 50px rgba(194,65,12,0.14), 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.checker-mode-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  border-bottom: 1.5px solid var(--orange-50);
+  padding-bottom: 16px;
+}
+
+.checker-label-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.checker-label-group .icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: var(--grad-brand);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(234,88,12,0.28);
+  flex-shrink: 0;
+}
+.checker-label-group .icon-box svg { color: #fff; }
+
+.checker-label-group .text {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--slate-900);
+  letter-spacing: -0.01em;
+}
+
+/* Tabs — ตรวจใบเดียว / หลายใบ */
+.checker-tabs {
+  display: inline-flex;
+  background: var(--orange-50);
+  padding: 3px;
+  border-radius: 11px;
+  gap: 2px;
+  border: 1px solid var(--orange-100);
+}
+
+.tab-btn {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 18px;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--orange-700);
+  transition: all 0.2s;
+}
+.tab-btn.active {
+  background: var(--grad-brand);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(234,88,12,0.3);
+}
+
+/* ฟอร์ม */
+.checker-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.input-group {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.ticket-input-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.ticket-input {
+  width: 100%;
+  font-family: 'Chakra Petch', monospace;
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-align: center;
+  padding: 12px 50px 12px 18px;
+  border: 2px solid var(--slate-200);
+  border-radius: var(--radius-md);
+  background: var(--slate-50);
+  color: var(--slate-900);
+  outline: none;
+  transition: all 0.22s;
+}
+.ticket-input:focus {
+  border-color: var(--orange-500);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(249,115,22,0.14);
+}
+.ticket-input::placeholder { color: var(--slate-300); }
+
+.clear-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--slate-200);
+  color: var(--slate-600);
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+.clear-btn:hover { background: var(--slate-300); color: var(--slate-900); }
+
+.btn-check {
+  font: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--grad-brand);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0 36px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(220,38,38,0.3);
+  transition: all 0.22s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  letter-spacing: 0.01em;
+}
+.btn-check:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(220,38,38,0.38);
+  filter: brightness(1.05);
+}
+.btn-check:disabled { opacity: 0.4; cursor: not-allowed; box-shadow: none; }
+
+.quick-hint {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--slate-500);
+  gap: 8px;
+  font-family: 'Sarabun', sans-serif;
+}
+
+.sample-pills { display: flex; align-items: center; gap: 6px; }
+
+.sample-pill {
+  font-family: 'Chakra Petch', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  background: var(--gold-100);
+  border: 1px solid var(--gold-300);
+  border-radius: 7px;
+  padding: 2px 10px;
+  cursor: pointer;
+  color: var(--gold-600);
+  transition: all 0.15s;
+}
+.sample-pill:hover { background: var(--gold-200); color: #92400e; }
+
+.multi-textarea {
+  width: 100%;
+  font-family: 'Chakra Petch', monospace;
+  font-size: 15px;
+  line-height: 1.65;
+  padding: 14px 16px;
+  border: 2px solid var(--slate-200);
+  border-radius: var(--radius-md);
+  background: var(--slate-50);
+  color: var(--slate-900);
+  outline: none;
+  resize: vertical;
+  min-height: 90px;
+  transition: all 0.2s;
+}
+.multi-textarea:focus {
+  background: #fff;
+  border-color: var(--orange-500);
+  box-shadow: 0 0 0 4px rgba(249,115,22,0.14);
+}
+
+/* =========================================
+   VERDICT BOXES (ผลการตรวจ)
+   ========================================= */
+.verdict {
+  margin-top: 20px;
+  border-radius: var(--radius-lg);
+  padding: 24px 26px;
+  animation: popIn 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.97) translateY(-6px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* WIN */
+.verdict.win {
+  background: linear-gradient(145deg, #f0fdf4, #dcfce7);
+  border: 2px solid var(--green-600);
+  box-shadow: 0 10px 28px rgba(22,163,74,0.14);
+}
+.win-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--green-700);
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.win-badge {
+  background: var(--green-600);
+  color: #fff;
+  font-size: 12.5px;
+  padding: 3px 12px;
+  border-radius: 9999px;
+  font-weight: 700;
+}
+.win-list { display: flex; flex-direction: column; gap: 10px; margin: 10px 0; }
+.win-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px 20px;
+  border: 1px solid rgba(22,163,74,0.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.win-item-info { display: flex; align-items: center; gap: 12px; }
+.win-item-title { font-weight: 800; font-size: 16px; color: var(--slate-900); }
+.win-item-sub { font-size: 13.5px; color: var(--slate-500); font-family: 'Sarabun', sans-serif; margin-top: 2px; }
+.win-item-num {
+  font-family: 'Chakra Petch', monospace;
+  font-size: 22px;
+  font-weight: 800;
+  background: var(--grad-gold);
+  color: #78350f;
+  padding: 4px 14px;
+  border-radius: 9px;
+  letter-spacing: 0.08em;
+}
+.claim-box {
+  background: rgba(255,255,255,0.9);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-top: 14px;
+  font-family: 'Sarabun', sans-serif;
+  font-size: 14px;
+  color: var(--slate-800);
+  border-left: 4px solid var(--green-600);
+  line-height: 1.75;
+}
+.claim-box strong { color: var(--green-700); font-family: 'Prompt', sans-serif; }
+
+/* LOSE */
+.verdict.lose {
+  background: var(--slate-50);
+  border: 1.5px solid var(--slate-200);
+  color: var(--slate-700);
+}
+.lose-title { font-size: 18px; font-weight: 700; color: var(--slate-900); margin-bottom: 6px; }
+.lose-sub { font-family: 'Sarabun', sans-serif; font-size: 14px; color: var(--slate-500); line-height: 1.65; }
+
+/* PARTIAL */
+.verdict.partial {
+  background: #fffbeb;
+  border: 2px solid var(--gold-400);
+  color: #92400e;
+}
+
+/* WAIT */
+.verdict.wait {
+  background: #fff7ed;
+  border: 2px solid var(--orange-400);
+  color: var(--orange-700);
+}
+
+/* =========================================
+   SECTION HEADER (ผลรางวัล)
+   ========================================= */
+.section-header {
+  margin: 48px 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.section-title-wrap h2 {
+  margin: 0 0 4px;
+  font-size: clamp(22px, 3.5vw, 28px);
+  font-weight: 800;
+  color: var(--slate-900);
+  letter-spacing: -0.01em;
+}
+
+/* เส้นทองใต้หัวข้อ */
+.section-title-wrap h2 span.title-line {
+  display: block;
+  width: 48px;
+  height: 4px;
+  border-radius: 9999px;
+  background: var(--grad-brand);
+  margin-top: 6px;
+}
+
+.section-title-wrap .sub-meta {
+  margin: 0;
+  font-family: 'Sarabun', sans-serif;
+  font-size: 14px;
+  color: var(--slate-500);
+}
+
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ecfdf5;
+  color: var(--green-700);
+  border: 1px solid #a7f3d0;
+  padding: 5px 13px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.pulse-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--green-600);
+  animation: pulse 1.6s infinite;
+}
+@keyframes pulse {
+  0%   { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(22,163,74,0.7); }
+  70%  { transform: scale(1);   box-shadow: 0 0 0 7px rgba(22,163,74,0); }
+  100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(22,163,74,0); }
+}
+
+.btn-print {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-600);
+  background: #fff;
+  border: 1px solid var(--slate-300);
+  border-radius: 9px;
+  padding: 7px 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+.btn-print:hover { background: var(--slate-100); color: var(--slate-900); }
+
+/* =========================================
+   PRIZE CARDS — การ์ดรางวัล
+   ========================================= */
+.prize-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.prize-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid rgba(234,88,12,0.1);
+  padding: 22px 26px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.22s;
+  position: relative;
+  overflow: hidden;
+}
+.prize-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--orange-400), var(--orange-600));
+  border-radius: 4px 0 0 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.prize-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(234,88,12,0.22);
+  transform: translateY(-1px);
+}
+.prize-card:hover::before { opacity: 1; }
+
+/* รางวัลที่ 1 — Grand Prize */
+.prize-card.grand {
+  background: linear-gradient(145deg, #fff9f5 0%, #fff4e8 100%);
+  border: 2px solid var(--orange-400);
+  box-shadow: 0 8px 28px rgba(234,88,12,0.14), 0 2px 8px rgba(0,0,0,0.04);
+  padding: 26px 28px;
+}
+.prize-card.grand::before {
+  display: none;
+}
+/* เส้นสีบน grand prize */
+.prize-card.grand::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--grad-brand);
+}
+.prize-card.grand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(234,88,12,0.2);
+}
+
+.prize-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.prize-name-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* กล่องไอคอน */
+.prize-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--orange-50);
+  border: 1.5px solid var(--orange-200);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--orange-700);
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.prize-card.grand .prize-icon-box {
+  background: var(--grad-gold);
+  border-color: var(--gold-400);
+  color: #78350f;
+  box-shadow: var(--shadow-gold);
+}
+
+.prize-badge {
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 7px;
+  background: var(--orange-50);
+  color: var(--orange-700);
+  border: 1px solid var(--orange-200);
+}
+.prize-card.grand .prize-badge {
+  background: var(--grad-brand);
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 8px rgba(220,38,38,0.22);
+}
+
+.prize-card-title {
+  margin: 0;
+  font-size: 17.5px;
+  font-weight: 800;
+  color: var(--slate-900);
+  letter-spacing: -0.01em;
+}
+.prize-card.grand .prize-card-title {
+  font-size: 20px;
+  color: var(--orange-800);
+}
+
+.prize-card-unit {
+  font-family: 'Sarabun', sans-serif;
+  font-size: 13.5px;
+  color: var(--slate-500);
+  font-weight: 500;
+  text-align: right;
+  line-height: 1.4;
+}
+
+/* Number Chips */
+.prize-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.prize-chip {
+  font-family: 'Chakra Petch', monospace;
+  font-size: clamp(20px, 3.5vw, 28px);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  padding: 8px 20px;
+  border-radius: 10px;
+  background: var(--gold-50);
+  border: 2px solid var(--gold-200);
+  color: var(--slate-800);
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.15s;
+}
+.prize-chip:hover { border-color: var(--gold-400); background: var(--gold-100); }
+
+.prize-card.grand .prize-chip {
+  font-size: clamp(26px, 5vw, 36px);
+  background: linear-gradient(145deg, #fff8f0, #fef3c7);
+  border: 2px solid var(--orange-400);
+  color: var(--orange-800);
+  padding: 10px 24px;
+  box-shadow: 0 2px 8px rgba(234,88,12,0.1);
+}
+
+.prize-chip.hit {
+  background: var(--grad-gold) !important;
+  border-color: #92400e !important;
+  color: #78350f !important;
+  animation: glow 1.2s ease-in-out infinite alternate;
+  transform: scale(1.04);
+}
+@keyframes glow {
+  from { box-shadow: 0 0 8px rgba(245,158,11,0.5); }
+  to   { box-shadow: 0 0 22px rgba(245,158,11,1); }
+}
+
+.prize-empty {
+  font-family: 'Sarabun', sans-serif;
+  font-size: 14px;
+  color: var(--slate-400);
+  font-style: italic;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--slate-50);
+  border-radius: 9px;
+  border: 1.5px dashed var(--slate-200);
+}
+
+/* =========================================
+   CONDITIONS SECTION (เงื่อนไข)
+   ========================================= */
+.conditions-section { margin-top: 52px; }
+
+.conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.cond-card {
+  background: #fff;
+  border: 1.5px solid var(--orange-100);
+  border-radius: var(--radius-md);
+  padding: 22px 20px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.22s;
+  position: relative;
+  overflow: hidden;
+}
+.cond-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--grad-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.cond-card:hover { box-shadow: var(--shadow-lg); border-color: var(--orange-200); transform: translateY(-2px); }
+.cond-card:hover::after { transform: scaleX(1); }
+
+.cond-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, var(--orange-50), var(--gold-100));
+  border: 1.5px solid var(--orange-200);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  color: var(--orange-600);
+  box-shadow: 0 2px 8px rgba(234,88,12,0.08);
+}
+
+.cond-title { margin: 0 0 8px; font-size: 15.5px; font-weight: 700; color: var(--slate-900); }
+.cond-text { margin: 0; font-family: 'Sarabun', sans-serif; font-size: 13.5px; color: var(--slate-600); line-height: 1.65; }
+.cond-text a { color: var(--orange-600); text-decoration: none; font-weight: 600; }
+.cond-text a:hover { text-decoration: underline; }
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+  text-align: center;
+  font-family: 'Sarabun', sans-serif;
+  font-size: 13.5px;
+  color: var(--slate-500);
+  padding: 28px 20px 48px;
+  border-top: 1px solid var(--orange-100);
+  background: #fff;
+  margin-top: 16px;
+}
+footer a { color: var(--orange-600); text-decoration: none; font-weight: 600; }
+footer a:hover { text-decoration: underline; }
+
+/* =========================================
+   ADMIN PANEL
+   ========================================= */
+.admin { padding-top: 24px; }
+.admin .nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: center;
+  padding: 14px 18px;
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+  border: 1px solid var(--slate-200);
+  font-weight: 600;
+}
+.admin .nav a { color: var(--slate-700); text-decoration: none; padding: 4px 8px; border-radius: 6px; transition: all 0.15s; }
+.admin .nav a:hover { background: var(--orange-50); color: var(--orange-600); }
+.admin .nav label { margin-left: auto; font-size: 13px; font-weight: 500; color: var(--slate-600); display: flex; align-items: center; gap: 8px; }
+
+.admin input.f {
+  font-family: 'Chakra Petch', monospace;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  width: 120px;
+  padding: 8px 10px;
+  border: 1.5px solid var(--slate-300);
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  font-size: 16px;
+}
+.admin input.f:focus { border-color: var(--orange-500); box-shadow: 0 0 0 3px rgba(249,115,22,0.14); }
+.admin .grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.admin .t, .admin input.t {
+  font: inherit;
+  padding: 10px 14px;
+  border: 1.5px solid var(--slate-300);
+  border-radius: 8px;
+  flex: 1;
+  min-width: 200px;
+  width: 100%;
+  margin-bottom: 10px;
+  background: #fff;
+  outline: none;
+}
+.admin .t:focus, .admin input.t:focus { border-color: var(--orange-500); }
+.err { color: var(--red-600); font-weight: 700; }
+.okmsg { color: var(--green-700); font-weight: 700; }
+
+/* =========================================
+   PRINT / UTILITY
+   ========================================= */
+.print-only { display: none; }
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 640px) {
+  .top-nav-inner { flex-direction: column; align-items: flex-start; }
+  .nav-links { width: 100%; justify-content: space-between; }
+
+  .hero-header-box { padding: 32px 16px 28px; }
+  .main-title { letter-spacing: -0.01em; }
+
+  .checker-card { padding: 20px 18px; margin-top: -20px; }
+  .input-group { flex-direction: column; }
+  .btn-check { padding: 15px; width: 100%; font-size: 16px; }
+
+  .prize-card { padding: 18px 18px; }
+  .prize-card.grand { padding: 20px 18px; }
+  .prize-chip { padding: 6px 14px; }
+
+  .section-header { flex-direction: column; align-items: flex-start; }
+  .conditions-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 400px) {
+  .hero-badges-row { gap: 6px; }
+  .hero-pill-badge { font-size: 11.5px; padding: 5px 11px; }
+}
+
+/* =========================================
+   PRINT STYLESHEET
+   ========================================= */
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  .no-print, .top-nav-bar, .hero-header-card, .checker-card, footer, .btn-print, .live-indicator {
+    display: none !important;
+  }
+  .print-only { display: block !important; }
+  .print-header { text-align: center; border-bottom: 2px solid #000; padding-bottom: 12px; margin-bottom: 20px; }
+  .wrap { max-width: 100% !important; padding: 0 !important; }
+  .prize-card { border: 1px solid #ccc !important; box-shadow: none !important; break-inside: avoid; page-break-inside: avoid; padding: 10px 14px !important; margin-bottom: 10px !important; }
+  .prize-card.grand { border: 2px solid #000 !important; background: #fbfbfb !important; }
+  .prize-card.grand::after { display: none !important; }
+  .prize-chip { border: 1px solid #666 !important; background: #fff !important; color: #000 !important; }
+}
